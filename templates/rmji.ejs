@@ -6,31 +6,27 @@
   <body>
     <div><%- include('./partials/navbar'); %></div>
     <div class="container">
-      <h1><%= header %></h1>
-      <div id="app">
-        <form @submit.prevent="createServer">
-          <div class="mb-3">
-            <input
-              type="text" v-model="name"
-              class="form-control"
-      
-            />
-        </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+      A novel
+      <a
+        href="https://www.novelupdates.com/series/a-record-of-a-mortals-journey-to-immortality/"
+        >A Record of a Mortal’s Journey to Immortality</a
+      >
+      inspiring this work...
+     <div> <img src="./record-of-mortal-cultivating-to-immortal.jpg" /></div>
+    </div class="container"><strong>Chapter 1. The Village by the Forest</strong><br><h7>
+    “Second Fool” opened his eyes and stared at the mud and thatch roof over his head. The quilt covering his body was a deep yellow color and had a musty smell. It was so old that its original color could no longer be distinguished.<br>
+    
+    Next to him lay his second brother, Han Zhu, who appeared to be in a deep slumber. Snores intermittently floated over as he slept.<br>
+    
+    Five feet from the bed was an earthen wall that had suffered from numerous cracks due to the passage of time. From the other side of the wall came the nagging voice of his mother and the occasional deep breathing of his father who was smoking his pipe.<br>
+    
+    Second Fool slowly closed his eyes, trying to force himself to sleep. He knew that if he didn’t go to sleep now, he wouldn’t be able to wake up early the next day. If he woke up late, he would not be able to go up to the mountains with his good friends to gather firewood.<br>
+    
+    Second Fool’s real name was Han Li. This elegant name was not given to him by his parents. When he was born, his parents had offered two pieces of cornbread to the village’s Elder Zhang in exchange for giving the baby Han Li a second name.<br>
+    
+    (TL: “Second Fool” [er leng zi 二愣子] in Mandarin has a pleasing sound despite its meaning)<br></h7>
+    ...</div>
 
-        <div class="spinner-border" role="status" v-if="servers.length === 0">
-          <span class="visually-hidden">Loading...</span>
-        </div>
-        <ul class="list-group" v-else>
-          <li class="list-group-item" v-for="server in servers">
-            {{ server.name }}
-            <strong>{{ server.age }}</strong>
-          </li>
-        </ul>
-      </div>
     </div>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="/app.js"></script>
   </body>
 </html>

@@ -14,7 +14,7 @@ import * as path from 'path'
 const __dirname: string = path.resolve()
 const pathTemplates: string = path.resolve(__dirname, 'templates')
 const pathStatic: string = path.resolve(__dirname, 'static')
-const pathImages: string = path.resolve(__dirname, 'static')
+const pathImages: string = path.resolve(__dirname, 'images')
 
 // получение настроек
 const port: string = config.has('port')
@@ -52,7 +52,7 @@ function getRenderFunc(idx: number): any {
   return (req: express.Request, res: express.Response) => {
     let p: Page = pages[idx]
     res.render(p.fileName, {
-      index: idx,   
+      index: idx,
       pages: pages,
       title: p.title,
       header: p.title,
