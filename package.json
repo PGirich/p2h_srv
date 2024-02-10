@@ -1,17 +1,29 @@
 {
   "devDependencies": {
+    "@types/config": "^3.3.3",
+    "@types/ejs": "^3.1.5",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.11.17",
+    "ejs": "^3.1.9",
     "typescript": "^5.3.3"
   },
   "dependencies": {
+    "config": "^3.3.11",
+    "express": "^4.18.2",
     "fs": "^0.0.1-security",
-    "http": "^0.0.1-security"
+    "http": "^0.0.1-security",
+    "nodemon": "^3.0.3",
+    "path": "^0.12.7"
   },
   "name": "p2h_srv",
   "version": "1.0.0",
   "description": "Path to heaven server",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "dev": "nodemon ./built/index.js",
+    "start": "tsc && npm run dev"
   },
   "repository": {
     "type": "git",
