@@ -1,7 +1,12 @@
 import * as express from 'express'
-import * as ejs from 'ejs'
+import { render } from 'ejs'
 import * as config from 'config'
 import * as path from 'path'
+// import express = require('express')
+// import ejs = require('ejs')
+// import config = require('config')
+// import path = require('path')
+
 //import { requestTime, logger } from './middleware.js'
 //import serverRoutes from './routes/servers.js'
 
@@ -16,7 +21,7 @@ const port: string = config.has('port')
   ? config.get('port')
   : process.env.port ?? '3000'
 
-const app: Application = express()
+const app = express()
 
 // настройка EJS
 app.set('view engine', 'ejs')
@@ -41,20 +46,20 @@ const pages: Page[] = [
   { fileName: 'rmji', title: 'Inspired by...' },
 ]
 
-app.get('/',(req: Request, res: Response) => {
-  res.end(ejs.render('index', {
+app.get('/', (req, res) => {
+  res.render('index', {
     title: 'p.title',
     header: 'p.title',
   })
-
+})
 
 // настройка отрисовки по шаблонам
-function getRenderFunc(p: Page): Function {
-  return (req: Request, res: Response) => {
-    res.end(ejs.render(p.fileName, {
+function getRenderFunc(p: Page): any {
+  return (req: express.Request, res: express.Response) => {
+    res.render(p.fileName, {
       title: p.title,
       header: p.title,
-    }))
+    })
   }
 }
 pages.forEach((p: Page) =>
