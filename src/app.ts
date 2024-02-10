@@ -35,36 +35,33 @@ app.use(express.static(pathImages))
 
 // массив страниц
 interface Page {
+  urlName: string
   fileName: string
   title: string
 }
 const pages: Page[] = [
-  { fileName: 'index', title: 'Home' },
-  { fileName: 'game', title: 'Play' },
-  { fileName: 'rating', title: "Player's rating" },
-  { fileName: 'wiki', title: 'Game wiki' },
-  { fileName: 'rmji', title: 'Inspired by...' },
+  { urlName: '/', fileName: 'index', title: 'Home' },
+  { urlName: '/game', fileName: 'game', title: 'Play' },
+  { urlName: '/rating', fileName: 'rating', title: "Player's rating" },
+  { urlName: '/wiki', fileName: 'wiki', title: 'Game wiki' },
+  { urlName: '/rmji', fileName: 'rmji', title: 'Inspired by...' },
 ]
 
-app.get('/', (req, res) => {
-  res.render('index', {
-    title: 'p.title',
-    header: 'p.title',
-  })
-})
-
 // настройка отрисовки по шаблонам
-function getRenderFunc(p: Page): any {
+function getRenderFunc(idx: number): any {
   return (req: express.Request, res: express.Response) => {
+    let p: Page = pages[idx]
     res.render(p.fileName, {
+      index: idx,   
+      pages: pages,
       title: p.title,
       header: p.title,
     })
   }
 }
-pages.forEach((p: Page) =>
-  app.get(p.fileName === 'index' ? '/' : p.fileName, getRenderFunc(p))
-)
+for (let i = 0; i < pages.length; i++) {
+  app.get(pages[i].urlName, getRenderFunc(i))
+}
 
 // запуск сервера
 app.listen(port, () => {

@@ -1,19 +1,13 @@
 <h1><%= header %></h1>
 <ul class="nav nav-pills">
-  <li class="nav-item">
-    <a
-      class="nav-link <% if(active==='main'){%>active<%}%>"
-      <% if(active==='main'){%> aria-current="page"<%}%>
-      href="/"
-      >Main page</a
-    >
-  </li>
-  <li class="nav-item">
-    <a
-      class="nav-link <% if(active==='features'){ %>active<%}%>"
-      <% if(active==='main'){%>aria-current="page"<%}%>
-      href="/features"
-      >Features</a
-    >
-  </li>
+         <% for(let i=0; i<emails.length;i++) {%>
+          <li class="nav-item">
+            <a
+              class="nav-link <% if(active==='main'){%>active<%}%>"
+              <% if(active==='main'){%> aria-current="page"<%}%>
+              href="<%=emails[i] %>"
+              ><%=emails[i] %></a
+            >
+          </li>
+        <%} %>
 </ul>

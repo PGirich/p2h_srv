@@ -26,30 +26,27 @@ app.set('views', pathTemplates);
 app.use(express.static(pathStatic));
 app.use(express.static(pathImages));
 var pages = [
-    { fileName: 'index', title: 'Home' },
-    { fileName: 'game', title: 'Play' },
-    { fileName: 'rating', title: "Player's rating" },
-    { fileName: 'wiki', title: 'Game wiki' },
-    { fileName: 'rmji', title: 'Inspired by...' },
+    { urlName: '/', fileName: 'index', title: 'Home' },
+    { urlName: '/game', fileName: 'game', title: 'Play' },
+    { urlName: '/rating', fileName: 'rating', title: "Player's rating" },
+    { urlName: '/wiki', fileName: 'wiki', title: 'Game wiki' },
+    { urlName: '/rmji', fileName: 'rmji', title: 'Inspired by...' },
 ];
-app.get('/', function (req, res) {
-    res.render('index', {
-        title: 'p.title',
-        header: 'p.title',
-    });
-});
 // настройка отрисовки по шаблонам
-function getRenderFunc(p) {
+function getRenderFunc(idx) {
     return function (req, res) {
+        var p = pages[idx];
         res.render(p.fileName, {
+            index: idx,
+            pages: pages,
             title: p.title,
             header: p.title,
         });
     };
 }
-pages.forEach(function (p) {
-    return app.get(p.fileName === 'index' ? '/' : p.fileName, getRenderFunc(p));
-});
+for (var i = 0; i < pages.length; i++) {
+    app.get(pages[i].urlName, getRenderFunc(i));
+}
 // запуск сервера
 app.listen(port, function () {
     console.log("Server has been started on port: ".concat(port));
