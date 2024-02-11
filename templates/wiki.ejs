@@ -6,31 +6,17 @@
   <body>
     <div><%- include('./partials/navbar'); %></div>
     <div class="container">
-      <h1><%= header %></h1>
-      <div id="app">
-        <form @submit.prevent="createServer">
-          <div class="mb-3">
-            <input
-              type="text" v-model="name"
-              class="form-control"
-      
-            />
-        </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-
-        <div class="spinner-border" role="status" v-if="servers.length === 0">
-          <span class="visually-hidden">Loading...</span>
-        </div>
-        <ul class="list-group" v-else>
-          <li class="list-group-item" v-for="server in servers">
-            {{ server.name }}
-            <strong>{{ server.age }}</strong>
-          </li>
-        </ul>
-      </div>
+      <img
+        src=".\two_chinese_artefactors.png"
+        width="200px"
+        align="left"
+        hspace="10"
+        vspace="10"
+      />
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste iure
+      debitis corrupti officiis eligendi minus repudiandae reiciendis alias
+      dolore voluptatem totam, natus rem dolores atque quia itaque. Doloremque,
+      exercitationem illum.
     </div>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="/app.js"></script>
   </body>
 </html>

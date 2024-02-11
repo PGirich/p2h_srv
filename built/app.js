@@ -14,7 +14,7 @@ var path = require("path");
 var __dirname = path.resolve();
 var pathTemplates = path.resolve(__dirname, 'templates');
 var pathStatic = path.resolve(__dirname, 'static');
-var pathImages = path.resolve(__dirname, 'static');
+var pathImages = path.resolve(__dirname, 'images');
 // получение настроек
 var port = config.has('port')
     ? config.get('port')

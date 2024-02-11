@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
     "outDir": "./built",
+    "rootDir": "./src"
     "allowJs": true,
-    "target": "es5"
+    "target": "ES6",
   },
   "include": ["./src/**/*"],
   "esModuleInterop": true
